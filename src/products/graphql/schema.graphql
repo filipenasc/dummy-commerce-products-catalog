@@ -1,11 +1,29 @@
 type Product {
   id: String
   sku: String
-  title: String
   price: Float
   description: String
+  title: String
+  imageUrl: String
+  category: String
+  tags: [String]
+  createdAt: Date
+}
+
+input CreateProductInput {
+  sku: String
+  price: Float
+  description: String
+  title: String
+  imageUrl: String
+  category: String
+  tags: [String]
 }
 
 type Query {
   allProducts: [Product!]
+}
+
+type Mutation {
+  createProduct(input: CreateProductInput!): Product
 }
